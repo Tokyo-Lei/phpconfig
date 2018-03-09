@@ -1,0 +1,12 @@
+{
+    "name": "wolferhua/config",
+    "description": "php config from think config",
+    "type": "library",
+    "authors": [
+        {
+            "name": "wolferhua",
+            "email": "358273385@qq.com"
+        }
+    ],
+    "require": {}
+}
