@@ -90,7 +90,11 @@ class Config implements \ArrayAccess
         // 如果尚未载入 则动态加载配置文件
         if (defined('PHP_CONFIG_AUTO_PATH')){
             if (is_dir(PHP_CONFIG_AUTO_PATH)){
-
+                foreach (glob(PHP_CONFIG_AUTO_PATH.'/*') as $file){
+                    if (is_file($file)) {
+                        $this->load($file, $name);
+                    }
+                }
             }else{
                 if (is_file(PHP_CONFIG_AUTO_PATH)) {
                     $this->load(PHP_CONFIG_AUTO_PATH, $name);
