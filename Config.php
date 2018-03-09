@@ -42,7 +42,7 @@ class Config implements \ArrayAccess
      * @param  string    $name 配置名（如设置即表示二级配置）
      * @return mixed
      */
-    public function parse($config, $type = '', $name = '')
+    public function parse($config, $type = '', $name = 'app')
     {
         if (empty($type)) {
             $type = pathinfo($config, PATHINFO_EXTENSION);
@@ -61,7 +61,7 @@ class Config implements \ArrayAccess
      * @param  string    $name 一级配置名
      * @return mixed
      */
-    public function load($file, $name = '')
+    public function load($file, $name = 'app')
     {
         if (is_file($file)) {
             $name = strtolower($name);
@@ -88,11 +88,17 @@ class Config implements \ArrayAccess
     protected function autoLoad($name)
     {
         // 如果尚未载入 则动态加载配置文件
+        if (defined('PHP_CONFIG_AUTO_PATH')){
+            if (is_dir(PHP_CONFIG_AUTO_PATH)){
 
-
-        if (isset($file) && is_file($file)) {
-            $this->load($file, $name);
+            }else{
+                if (is_file(PHP_CONFIG_AUTO_PATH)) {
+                    $this->load(PHP_CONFIG_AUTO_PATH, $name);
+                }
+            }
         }
+
+
     }
 
     /**
