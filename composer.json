@@ -8,5 +8,18 @@
             "email": "358273385@qq.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload":{
+        "psr-4": {
+            "config\\": "./config"
+        },
+        "classmap":["./"]
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+
 }
