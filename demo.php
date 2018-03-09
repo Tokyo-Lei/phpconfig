@@ -15,3 +15,4 @@ $Config = new Config();
 ///$Config->parse(PHP_CONFIG_PATH.'config.php','','app');
 
 var_dump($Config->get('test'));
+var_dump($Config);

@@ -1,6 +1,6 @@
 {
     "name": "wolferhua/config",
-    "description": "php config from think config",
+    "description": "php config from thinkphp config",
     "type": "library",
     "authors": [
         {
